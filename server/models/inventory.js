@@ -1,19 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Transaction = sequelize.define('Transaction', {
-    to: {
+  var Inventory = sequelize.define('Inventory', {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    from: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    amount: {
+    price: {
       type: DataTypes.FLOAT,
       allowNull: false
     },
-    items: {
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    meta_tags: {
       type: DataTypes.JSON,
       allowNull: false
     },
@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
-  Transaction.associate = models => {
+  Inventory.associate = function (models) {
     // associations can be defined here
-    models.Transaction.belongsTo(models.User);
+    models.Inventory.belongsTo(models.User)
   };
-  return Transaction;
+  return Inventory;
 };
