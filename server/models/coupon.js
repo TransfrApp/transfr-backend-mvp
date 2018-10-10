@@ -15,7 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     discount_amount: {
       type: DataTypes.FLOAT,
-      allowNul: true,
+      allowNull: true,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {});
   Coupon.associate = function (models) {
