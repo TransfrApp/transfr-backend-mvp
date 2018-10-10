@@ -1,0 +1,1 @@
+// Controller File for the Inventory Model
