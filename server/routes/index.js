@@ -9,4 +9,12 @@ module.exports = (app) => {
   app.post('/api/user', userController.create);
   app.post('/api/user/login', userController.login);
   app.get('/api/user', userController.list);
+
+  // Transactions
+
+
+  // Coupons
+
+
+  // Inventory
 };
