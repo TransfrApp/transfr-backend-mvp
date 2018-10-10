@@ -7,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     items: DataTypes.JSON,
     user_id: DataTypes.INTEGER
   }, {});
-  Transaction.associate = function (models) {
+  Transaction.associate = models => {
     // associations can be defined here
-    // models.transaction.belongsTo(models.users);
+    models.Transaction.belongsTo(models.User);
   };
   return Transaction;
 };
