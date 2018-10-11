@@ -34,10 +34,10 @@ module.exports = {
   ]),
 
   create(req, res) {
-    const { name, email, password } = req.body;
+    const { name, email, password, wallet_address } = req.body;
     return User
       .create({
-        name, email, password
+        name, email, password, wallet_address
       })
       .then(users => res.status(201).send(users))
       .catch(error => res.status(400).send(error));
