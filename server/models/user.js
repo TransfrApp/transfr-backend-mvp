@@ -33,10 +33,22 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       default: false
     },
+    wallet_address: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false
     },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    }
   }, {
       hooks: {
         beforeCreate: hashPassword,
