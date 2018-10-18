@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    account_type: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
       hooks: {
