@@ -24,12 +24,13 @@ module.exports = {
   login: compose([
     passport.authenticate('local'),
     (req, res) => {
+      console.log("Request", req)
       const token = jwt.encode({
         id: req.user.id,
         expirationDate: new Date(Date.now() + TOKEN_EXPIRATION_TIME),
       }, JWT_TOKEN);
 
-      res.status(200).send({ token });
+      res.status(200).send({ token, user: req.user });
     },
   ]),
 
@@ -42,6 +43,16 @@ module.exports = {
       .update({ name, business_name, email, wallet_address, account_type }, { where: { id } })
       .then(user => res.status(201).send(user))
       .catch(err => res.status(400).send(err))
+  },
+
+  // GET/{id} ~> Get a single Users data
+
+  getUser(req, res) {
+    const { id } = req.body;
+    return User
+      .findOne({ where: { id } })
+      .then(user => res.status(201).send(user))
+      .catch(err => res.status(401).send(err));
   },
 
   // POST
