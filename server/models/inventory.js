@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     meta_tags: {
       type: DataTypes.JSON,
-      allowNull: false
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,

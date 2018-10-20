@@ -1,4 +1,7 @@
 const userController = require('../controllers').user;
+const inventoryController = require('../controllers').inventory;
+const couponController = require('../controllers').coupon;
+const transactionController = require('../controllers').transaction;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -12,7 +15,7 @@ module.exports = (app) => {
   app.post('/api/user/get', userController.getUser);
   app.patch('/api/user', userController.update);
   // Transactions
-
+  app.post('/api/inventory', inventoryController.create);
 
   // Coupons
 

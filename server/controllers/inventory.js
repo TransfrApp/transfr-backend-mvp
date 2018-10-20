@@ -2,9 +2,11 @@
 const Inventory = require('../models').Inventory;
 
 module.exports = {
+
     // POST ~> Creates Inventory Items
     create(req, res) {
-        const { name, price, quantity, meta_tags, user_id } = req.body;
+        const { name, price, quantity, user_id, meta_tags } = req.body;
+        console.log("Req Body", req.body);
         return Inventory
             .create({ name, price, quantity, meta_tags, user_id })
             .then(inv => res.status(201).send(inv))
@@ -14,11 +16,8 @@ module.exports = {
     // GET/{id} ~> Returns all Items in Inventory
     list(req, res) {
         const { user_id } = req.body;
-        return Inventory.findAll({
-            where: {
-                user_id,
-            }
-        })
+        return Inventory
+            .findAll({ where: { user_id } })
             .then(inv => res.status(201).send(inv))
             .catch(err => res.status(400).send(err));
     },
