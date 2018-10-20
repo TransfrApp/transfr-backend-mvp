@@ -24,7 +24,6 @@ module.exports = {
   login: compose([
     passport.authenticate('local'),
     (req, res) => {
-      console.log("Request", req)
       const token = jwt.encode({
         id: req.user.id,
         expirationDate: new Date(Date.now() + TOKEN_EXPIRATION_TIME),
@@ -36,9 +35,7 @@ module.exports = {
 
   // PATCH/{id} ~> Update the User
   update(req, res) {
-    console.log("req body", req.body);
     const { id, name, business_name, email, wallet_address, account_type } = req.body;
-    console.log("User Id in DB", id);
     return User
       .update({ name, business_name, email, wallet_address, account_type }, { where: { id } })
       .then(user => res.status(201).send(user))
