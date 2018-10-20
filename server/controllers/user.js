@@ -35,13 +35,16 @@ module.exports = {
 
   // PATCH/{id} ~> Update the User
   update(req, res) {
+    console.log("req body", req.body);
     const { id, name, business_name, email, wallet_address, account_type } = req.body;
+    console.log("User Id in DB", id);
     return User
       .update({ name, business_name, email, wallet_address, account_type }, { where: { id } })
       .then(user => res.status(201).send(user))
       .catch(err => res.status(400).send(err))
   },
 
+  // POST
   create(req, res) {
     const { name, email, password, business_name, wallet_address } = req.body;
     return User

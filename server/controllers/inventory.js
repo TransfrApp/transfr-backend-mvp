@@ -24,7 +24,6 @@ module.exports = {
     },
 
     // PATCH/{id} ~> Update the Inventory Item
-
     update(req, res) {
         const { id, name, price, quantity, meta_tags, user_id } = req.body;
         return Inventory
