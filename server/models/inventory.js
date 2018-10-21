@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {});
   Inventory.associate = function (models) {
