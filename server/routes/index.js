@@ -14,7 +14,9 @@ module.exports = (app) => {
   app.get('/api/user', userController.list);
   app.post('/api/user/get', userController.getUser);
   app.patch('/api/user', userController.update);
+
   // Transactions
+  app.post('/api/transaction', transactionController.create);
 
   // Coupons
 

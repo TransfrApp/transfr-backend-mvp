@@ -16,8 +16,6 @@ module.exports = {
     // GET/{id} ~> Returns all Items in Inventory that belong to user
     list(req, res) {
         const { id } = req.body;
-        // console.log("Req Body in List Function", id);
-        // console.log("Type of Id", typeof id);
         return Inventory
             .findAll({ where: { UserId: id } })
             .then(inv => res.status(201).send(inv))

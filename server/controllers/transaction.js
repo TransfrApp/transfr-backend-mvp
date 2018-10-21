@@ -4,9 +4,9 @@ const Transaction = require('../models').Transaction;
 module.exports = {
     // POST ~> Create a Transaction
     create(req, res) {
-        const { to, from, amount, items, user_id } = req.body;
+        const { to, from, amount, items, UserId } = req.body;
         return Transaction
-            .create({ to, from, amount, items, user_id })
+            .create({ to, from, amount, items, UserId })
             .then(transactions => res.status(201).send(transactions))
             .catch(err => res.status(400).send(err));
     },
