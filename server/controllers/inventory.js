@@ -19,7 +19,7 @@ module.exports = {
         // console.log("Req Body in List Function", id);
         // console.log("Type of Id", typeof id);
         return Inventory
-            .findAll({ where: { user_id: id } })
+            .findAll({ where: { UserId: id } })
             .then(inv => res.status(201).send(inv))
             .catch(err => {
                 console.log("Raw Error Message", err)
