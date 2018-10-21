@@ -13,13 +13,18 @@ module.exports = {
             .catch(err => res.status(400).send(err))
     },
 
-    // GET/{id} ~> Returns all Items in Inventory
+    // GET/{id} ~> Returns all Items in Inventory that belong to user
     list(req, res) {
-        const { user_id } = req.body;
+        const { id } = req.body;
+        // console.log("Req Body in List Function", id);
+        // console.log("Type of Id", typeof id);
         return Inventory
-            .findAll({ where: { user_id } })
+            .findAll({ where: { user_id: id } })
             .then(inv => res.status(201).send(inv))
-            .catch(err => res.status(400).send(err));
+            .catch(err => {
+                console.log("Raw Error Message", err)
+                res.status(400).send(err)
+            });
     },
 
     // PATCH/{id} ~> Update the Inventory Item

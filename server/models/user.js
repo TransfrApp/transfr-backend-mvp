@@ -55,6 +55,7 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.isValidPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   }
+
   User.associate = models => {
     models.User.hasMany(models.Transaction)
     models.User.hasMany(models.Inventory)

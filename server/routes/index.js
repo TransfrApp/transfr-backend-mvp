@@ -15,10 +15,10 @@ module.exports = (app) => {
   app.post('/api/user/get', userController.getUser);
   app.patch('/api/user', userController.update);
   // Transactions
-  app.post('/api/inventory', inventoryController.create);
 
   // Coupons
 
-
   // Inventory
+  app.post('/api/inventory', inventoryController.create);
+  app.post('/api/inventory/get', inventoryController.list);
 };
