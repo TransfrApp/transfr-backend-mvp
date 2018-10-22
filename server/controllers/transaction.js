@@ -12,15 +12,16 @@ module.exports = {
             .catch(err => res.status(400).send(err));
     },
 
-    // GET ~> All Transactions
+    // GET/{id} ~> All Transactions
     list(req, res) {
+        const { id } = req.body;
         return Transaction
-            .all()
+            .findAll({ where: { UserId: id } })
             .then(txs => res.status(201).send(txs))
             .catch(err => res.status(400).send(err));
     },
 
-    // GET/{id} ~> Delete a Transaction
+    // POST/{id} ~> Delete a Transaction
     // NEEDS TO BE TESTED
     delete(req, res) {
         const { id } = req.body;

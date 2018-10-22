@@ -17,6 +17,7 @@ module.exports = (app) => {
 
   // Transactions
   app.post('/api/transaction', transactionController.create);
+  app.post('/api/transaction/get', transactionController.list);
 
   // Coupons
 
