@@ -17,6 +17,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.JSON,
       allowNull: false
     },
+    tax: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
+    discount: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
     UserId: {
       type: DataTypes.INTEGER,
       allowNull: false
