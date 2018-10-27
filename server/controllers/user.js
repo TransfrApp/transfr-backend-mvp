@@ -35,9 +35,9 @@ module.exports = {
 
   // PATCH/{id} ~> Update the User
   update(req, res) {
-    const { id, name, business_name, email, wallet_address, account_type } = req.body;
+    const { id, wallet_address } = req.body;
     return User
-      .update({ name, business_name, email, wallet_address, account_type }, { where: { id } })
+      .update({ wallet_address }, { where: { id } })
       .then(user => res.status(201).send(user))
       .catch(err => res.status(400).send(err))
   },
