@@ -5,10 +5,10 @@ module.exports = {
 
     // POST ~> Creates Inventory Items
     create(req, res) {
-        const { name, price, quantity, user_id, meta_tags, image } = req.body;
+        const { name, price, quantity, UserId, meta_tags, image } = req.body;
         console.log("Req Body", req.body);
         return Inventory
-            .create({ name, price, quantity, meta_tags, user_id, image })
+            .create({ name, price, quantity, meta_tags, UserId, image })
             .then(inv => res.status(201).send(inv))
             .catch(err => res.status(400).send(err))
     },
