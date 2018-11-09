@@ -35,9 +35,10 @@ module.exports = {
 
   // PATCH/{id} ~> Update the User
   update(req, res) {
-    const { id, wallet_address } = req.body;
+    console.log("Req body", req.body)
+    const { id, etherium_wallet, bitcoin_wallet } = req.body;
     return User
-      .update({ wallet_address }, { where: { id } })
+      .update({ etherium_wallet, bitcoin_wallet }, { where: { id } })
       .then(user => res.status(201).send(user))
       .catch(err => res.status(400).send(err))
   },
