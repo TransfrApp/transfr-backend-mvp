@@ -43,7 +43,6 @@ module.exports = {
   },
 
   // GET/{id} ~> Get a single Users data
-
   getUser(req, res) {
     const { id } = req.body;
     return User
