@@ -33,10 +33,6 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       default: false
     },
-    wallet_address: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     etherium_wallet: {
       type: DataTypes.STRING,
       allowNull: true

@@ -5,9 +5,9 @@ module.exports = {
 
     // POST ~> Create a Transaction
     create(req, res) {
-        const { to, from, amount, items, tax, discount, UserId } = req.body;
+        const { to, from, amount, items, tax, discount, UserId, payment_method } = req.body;
         return Transaction
-            .create({ to, from, amount, items, tax, discount, UserId })
+            .create({ to, from, amount, items, tax, discount, payment_method, UserId })
             .then(transactions => res.status(201).send(transactions))
             .catch(err => res.status(400).send(err));
     },
